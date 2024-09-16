@@ -22,7 +22,7 @@ The game has three possible outcomes other than a tie:
 
 1. Open the `index.html` file in your browser.
 2. Open the browser console (Right-click on the page and select "Inspect", then go to the "Console" tab).
-3. Play the game by calling the `playRound(playerSelection, computerSelection)` function in the console, where `playerSelection` is your move (either "rock", "paper", or "scissors") and `computerSelection` is the computer's move.
+3. Play the game by calling the `playGame()` function in the console.
 4. The result of the game will be displayed in the console.
 
 ## Project Structure

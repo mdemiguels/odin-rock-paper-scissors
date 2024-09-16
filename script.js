@@ -1,6 +1,33 @@
 let computerScore = 0;
 let humanScore = 0;
 
+function playGame() {
+
+    let humanSelection;
+    let computerSelection;
+
+    for (let i = 0; i < 5; i++) {
+
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+
+    }
+
+    printResult();
+}
+
+function printResult() {
+
+    console.log('Game finished!');
+    console.log(`Total score: human: ${humanScore} - computer: ${computerScore}`);
+
+    if (humanScore > computerScore) console.log('You are the winner!! Congrats!! 🎊');
+    else console.log('You have lost VS a computer... Shame on you 🤖');
+
+}
+
 function playRound(humanChoice, computerChoice) {
 
     if (humanChoice === computerChoice) {
@@ -24,7 +51,6 @@ function playRound(humanChoice, computerChoice) {
         console.log(`You loose! ${computerChoice} beats ${humanChoice}`);
     }
     
-    console.log(`Total score: human: ${humanScore} - computer: ${computerScore}`);
 }
 
 function getComputerChoice() {
@@ -47,8 +73,3 @@ function getHumanChoice() {
 
     return humanChoice;
 }
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
