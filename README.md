@@ -34,4 +34,4 @@ The game has three possible outcomes other than a tie:
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/odin-rock-paper-scissors.git
+   git clone https://github.com/mdemiguels/odin-rock-paper-scissors.git
