@@ -2,7 +2,7 @@
 
 This is a simple implementation of the classic game Rock, Paper, Scissors using vanilla JavaScript. This project is created to practice and demonstrate basic JavaScript skills.
 
-This is one of the projects in the initial path of The Odin Project, a free open-source coding curriculum.
+This is one of the projects in the initial path of [The Odin Project](https://www.theodinproject.com/), a free open-source coding curriculum.
 
 ## Game Rules
 
