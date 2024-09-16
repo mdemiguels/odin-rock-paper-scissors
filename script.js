@@ -9,5 +9,15 @@ function getComputerChoice() {
 
 }
 
-console.log(getComputerChoice())
+function getHumanChoice() {
+    
+    let humanChoice = prompt('input your option: 🪨 rock 📃 paper ✂️ scissors');
 
+    while(humanChoice !== 'rock' && humanChoice !== 'paper' && humanChoice !== 'scissors') {
+        humanChoice = prompt('input a valid option! 😠')
+    }
+    console.log(humanChoice);
+
+}
+
+getHumanChoice();
