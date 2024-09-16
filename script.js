@@ -1,3 +1,26 @@
+let computerScore = 0;
+let humanScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+
+    if (humanChoice === 'rock' && computerChoice === 'scissors') {
+        humanScore++;
+        console.log('You win! rock beats scissors');
+    }
+    else if (humanChoice === 'paper' && computerChoice === 'rock') {
+        humanScore++;
+        console.log('You win! paper beats rock');
+    }
+    else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+        humanScore++;
+        console.log('You win! scissors beats paper');
+    } else {
+        computerScore++;
+        console.log(`You loose! ${computerChoice} beats ${humanChoice}`);
+    }
+    
+    console.log(`Total score: human: ${humanScore} - computer: ${computerScore}`);
+}
 
 function getComputerChoice() {
 
@@ -11,13 +34,16 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     
-    let humanChoice = prompt('input your option: 🪨 rock 📃 paper ✂️ scissors');
+    let humanChoice = prompt('input your option: 🪨 rock 📃 paper ✂️ scissors').toLowerCase();
 
     while(humanChoice !== 'rock' && humanChoice !== 'paper' && humanChoice !== 'scissors') {
-        humanChoice = prompt('input a valid option! 😠')
+        humanChoice = prompt('input a valid option! 😠').toLowerCase()
     }
-    console.log(humanChoice);
 
+    return humanChoice;
 }
 
-getHumanChoice();
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
