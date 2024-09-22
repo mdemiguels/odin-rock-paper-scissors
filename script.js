@@ -1,15 +1,31 @@
 let computerScore = 0;
 let humanScore = 0;
 
-function playGame() {
-    let humanSelection;
+const rockBtn = document.querySelector("#rockBtn");
+const paperBtn = document.querySelector("#paperBtn");
+const scissorsBtn = document.querySelector("#scissorsBtn");
+
+rockBtn.addEventListener("click", (evt) => {
+    console.log("you clicked rock!");
+    playGame('rock');
+});
+paperBtn.addEventListener("click", (evt) => {
+    console.log("you clicked paper!");
+    playGame('paper');
+});
+scissorsBtn.addEventListener("click", (evt) => {
+    console.log("you clicked scissors!");
+    playGame('scissors');
+});
+
+function playGame(humanSelection) {
+    // let humanSelection;
     let computerSelection;
 
-    humanSelection = getHumanChoice();
+    // humanSelection = getHumanChoice();
     computerSelection = getComputerChoice();
 
     playRound(humanSelection, computerSelection);
-
 }
 
 // function printResult() {
@@ -17,7 +33,7 @@ function playGame() {
 //     console.log(
 //         `Total score: human: ${humanScore} - computer: ${computerScore}`
 //     );
-
+//
 //     if (humanScore > computerScore)
 //         console.log("You are the winner!! Congrats!! 🎊");
 //     else if (humanScore < computerScore)
