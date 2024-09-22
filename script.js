@@ -24,7 +24,8 @@ function printResult() {
     console.log(`Total score: human: ${humanScore} - computer: ${computerScore}`);
 
     if (humanScore > computerScore) console.log('You are the winner!! Congrats!! 🎊');
-    else console.log('You have lost VS a computer... Shame on you 🤖');
+    else if(humanScore < computerScore) console.log('You have lost VS a computer... Shame on you 🤖');
+    else console.log('It\'s Tie! Could be worse... 😜')
 
 }
 
