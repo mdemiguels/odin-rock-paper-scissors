@@ -7,12 +7,28 @@
 </head>
 <body>
 
-    <h1>Let's play a round!</h1>
+    <main class="main-container">
+        <h1>Let's play a round!</h1>
+    
+        <section class="options-container">
+            <h3>Choose one option for this round:</h3>
+            
+            <button id="rockBtn">Rock</button>
+            <button id="paperBtn">Paper</button>
+            <button id="scissorsBtn">Scissors</button>
+        </section>
+    
+        <section class="results-container">
+            <h3>Global score:</h3>
+            <p>round ${}</p>
+            <p>human: ${humanScore} - computer: ${computerScore}</p>
+        </section>
+        
+    </main>
 
-    <h3>Choose one option for this round:</h3>
-    <button id="rockBtn">Rock</button>
-    <button id="paperBtn">Paper</button>
-    <button id="scissorsBtn">Scissors</button>
+    <footer>
+        <p>This is a project inside of the Foundations Path of The Odin Project curriculum</p>
+    </footer>
 
     <script src="./script.js"></script>
 </body>
