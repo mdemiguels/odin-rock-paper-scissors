@@ -9,6 +9,7 @@ const scissorsBtn = document.querySelector("#scissorsBtn");
 
 const resultContainer = document.querySelector(".global-result-container");
 const roundContainer = document.querySelector(".round-result-container");
+const winnerContainer = document.querySelector(".winner-container");
 
 document.addEventListener("DOMContentLoaded", (evt) => {
     printGlobalResult();
@@ -28,17 +29,14 @@ scissorsBtn.addEventListener("click", (evt) => {
 });
 
 function playGame() {
-
     playRound();
     printGlobalResult();
 
-    if (humanScore === 5) printWinner('human');
-    else if (computerScore === 5) printWinner('computer');
-
+    if (humanScore === 5) printWinner("human");
+    else if (computerScore === 5) printWinner("computer");
 }
 
 function printGlobalResult() {
-    
     if (resultContainer.firstChild) {
         resultContainer.removeChild(resultContainer.firstChild);
     }
@@ -58,7 +56,6 @@ function printGlobalResult() {
 }
 
 function printRoundResult(msg) {
-
     if (roundContainer.lastChild) {
         roundContainer.removeChild(roundContainer.lastChild);
     }
@@ -67,15 +64,49 @@ function printRoundResult(msg) {
     roundResult.textContent = msg;
 
     roundContainer.appendChild(roundResult);
-
 }
 
 function printWinner(winner) {
+    const winnerParagraph = document.createElement("p");
+    const resetButton = document.createElement("button");
 
-    const winnerParagraph = document.createElement('p');
-    winnerParagraph.textContent = `${winner} is the winner!! Congratulations 🎊`
+    winnerParagraph.textContent = `${winner} is the winner!! Congratulations 🎊`;
+    resetButton.textContent = "Reset Game";
+    resetButton.onclick = resetGame;
+
+    winnerContainer.appendChild(winnerParagraph);
+    winnerContainer.appendChild(resetButton);
+
+    disableGameButtons();
+}
+
+function resetGame() {
+    
+    roundCounter = 0;
+    computerScore = 0;
+    humanScore = 0;
+
+    printGlobalResult();
+
+    while(winnerContainer.firstChild) {
+        winnerContainer.removeChild(winnerContainer.firstChild);
+    }
+    
+    enableGameButtons();
 
 }
+
+function disableGameButtons() {
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled = true;
+}
+
+function enableGameButtons() {
+    rockBtn.disabled = false;
+    paperBtn.disabled = false;
+    scissorsBtn.disabled = false;
+};
 
 function playRound() {
     let computerSelection = getComputerSelection();
