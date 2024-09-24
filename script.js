@@ -1,3 +1,4 @@
+let roundCounter = 0;
 let computerScore = 0;
 let humanScore = 0;
 let humanSelection = "";
@@ -14,33 +15,45 @@ document.addEventListener("DOMContentLoaded", (evt) => {
 });
 
 rockBtn.addEventListener("click", (evt) => {
-    // console.log("you clicked rock!");
     humanSelection = "rock";
     playGame();
 });
 paperBtn.addEventListener("click", (evt) => {
-    // console.log("you clicked paper!");
     humanSelection = "paper";
     playGame();
 });
 scissorsBtn.addEventListener("click", (evt) => {
-    // console.log("you clicked scissors!");
     humanSelection = "scissors";
     playGame();
 });
 
 function playGame() {
+
     playRound();
+    printGlobalResult();
+
+    if (humanScore === 5) printWinner('human');
+    else if (computerScore === 5) printWinner('computer');
+
 }
 
 function printGlobalResult() {
+    
+    if (resultContainer.firstChild) {
+        resultContainer.removeChild(resultContainer.firstChild);
+    }
+
     if (resultContainer.lastChild) {
         resultContainer.removeChild(resultContainer.lastChild);
     }
 
     const scoreParagraph = document.createElement("p");
-    scoreParagraph.textContent = `human: ${humanScore} - computer: ${computerScore}`;
+    const globalRound = document.createElement("p");
 
+    scoreParagraph.textContent = `human: ${humanScore} - computer: ${computerScore}`;
+    globalRound.textContent = `Round ${roundCounter}`;
+
+    resultContainer.appendChild(globalRound);
     resultContainer.appendChild(scoreParagraph);
 }
 
@@ -50,10 +63,17 @@ function printRoundResult(msg) {
         roundContainer.removeChild(roundContainer.lastChild);
     }
 
-    const roundParagraph = document.createElement("p");
-    roundParagraph.textContent = msg;
+    const roundResult = document.createElement("p");
+    roundResult.textContent = msg;
 
-    roundContainer.appendChild(roundParagraph);
+    roundContainer.appendChild(roundResult);
+
+}
+
+function printWinner(winner) {
+
+    const winnerParagraph = document.createElement('p');
+    winnerParagraph.textContent = `${winner} is the winner!! Congratulations 🎊`
 
 }
 
@@ -63,6 +83,7 @@ function playRound() {
     if (humanSelection === computerSelection) {
         // console.log(`It\'s tie! both chose ${humanSelection}`);
         printRoundResult(`It\'s tie! both chose ${humanSelection}`);
+        roundCounter++;
         return;
     }
 
@@ -86,7 +107,7 @@ function playRound() {
         );
     }
 
-    printGlobalResult();
+    roundCounter++;
 }
 
 function getComputerSelection() {
