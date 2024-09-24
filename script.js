@@ -70,7 +70,13 @@ function printWinner(winner) {
     const winnerParagraph = document.createElement("p");
     const resetButton = document.createElement("button");
 
-    winnerParagraph.textContent = `${winner} is the winner!! Congratulations 🎊`;
+    if (winner === "computer") {
+        winnerParagraph.textContent =
+            "Computer is the winner 🤖!! Luck for the next time! 🍀";
+    } else {
+        winnerParagraph.textContent =
+            "You are the winner 🧍🏻‍♂️!! Congratulations 🎊";
+    }
     resetButton.textContent = "Reset Game";
     resetButton.onclick = resetGame;
 
@@ -81,19 +87,18 @@ function printWinner(winner) {
 }
 
 function resetGame() {
-    
     roundCounter = 0;
     computerScore = 0;
     humanScore = 0;
 
+    printRoundResult();
     printGlobalResult();
 
-    while(winnerContainer.firstChild) {
+    while (winnerContainer.firstChild) {
         winnerContainer.removeChild(winnerContainer.firstChild);
     }
-    
-    enableGameButtons();
 
+    enableGameButtons();
 }
 
 function disableGameButtons() {
@@ -106,13 +111,12 @@ function enableGameButtons() {
     rockBtn.disabled = false;
     paperBtn.disabled = false;
     scissorsBtn.disabled = false;
-};
+}
 
 function playRound() {
     let computerSelection = getComputerSelection();
 
     if (humanSelection === computerSelection) {
-        // console.log(`It\'s tie! both chose ${humanSelection}`);
         printRoundResult(`It\'s tie! both chose ${humanSelection}`);
         roundCounter++;
         return;
@@ -120,19 +124,15 @@ function playRound() {
 
     if (humanSelection === "rock" && computerSelection === "scissors") {
         humanScore++;
-        // console.log("You win! rock beats scissors");
         printRoundResult("You win! rock beats scissors");
     } else if (humanSelection === "paper" && computerSelection === "rock") {
         humanScore++;
-        // console.log("You win! paper beats rock");
         printRoundResult("You win! paper beats rock");
     } else if (humanSelection === "scissors" && computerSelection === "paper") {
         humanScore++;
-        // console.log("You win! scissors beats paper");
         printRoundResult("You win! scissors beats paper");
     } else {
         computerScore++;
-        // console.log(`You loose! ${computerSelection} beats ${humanSelection}`);
         printRoundResult(
             `You loose! ${computerSelection} beats ${humanSelection}`
         );
