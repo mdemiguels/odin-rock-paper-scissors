@@ -7,7 +7,7 @@ const rockBtn = document.querySelector("#rockBtn");
 const paperBtn = document.querySelector("#paperBtn");
 const scissorsBtn = document.querySelector("#scissorsBtn");
 
-const resultContainer = document.querySelector(".global-result-container");
+const resultContainer = document.querySelector(".score-panel");
 const roundContainer = document.querySelector(".round-result-container");
 const winnerContainer = document.querySelector(".winner-container");
 
@@ -37,6 +37,7 @@ function playGame() {
 }
 
 function printGlobalResult() {
+
     if (resultContainer.firstChild) {
         resultContainer.removeChild(resultContainer.firstChild);
     }
@@ -48,7 +49,7 @@ function printGlobalResult() {
     const scoreParagraph = document.createElement("p");
     const globalRound = document.createElement("p");
 
-    scoreParagraph.textContent = `human: ${humanScore} - computer: ${computerScore}`;
+    scoreParagraph.textContent = `Human: ${humanScore} - Computer: ${computerScore}`;
     globalRound.textContent = `Round ${roundCounter}`;
 
     resultContainer.appendChild(globalRound);
