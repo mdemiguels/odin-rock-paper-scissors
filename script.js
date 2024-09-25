@@ -8,6 +8,9 @@ const paperBtn = document.querySelector("#paperBtn");
 const scissorsBtn = document.querySelector("#scissorsBtn");
 
 const resultContainer = document.querySelector(".score-panel");
+const textResultContainer = document.querySelector(".text-result-container");
+const humanImage = document.querySelector("#humanImage");
+const computerImage = document.querySelector("#computerImage");
 const roundContainer = document.querySelector(".round-result-container");
 const winnerContainer = document.querySelector(".winner-container");
 
@@ -16,14 +19,18 @@ document.addEventListener("DOMContentLoaded", (evt) => {
 });
 
 rockBtn.addEventListener("click", (evt) => {
+    humanImage.src = "./images/rock.png";
     humanSelection = "rock";
+
     playGame();
 });
 paperBtn.addEventListener("click", (evt) => {
+    humanImage.src = "./images/paper.png";
     humanSelection = "paper";
     playGame();
 });
 scissorsBtn.addEventListener("click", (evt) => {
+    humanImage.src = "./images/scissors.png";
     humanSelection = "scissors";
     playGame();
 });
@@ -37,7 +44,6 @@ function playGame() {
 }
 
 function printGlobalResult() {
-
     if (resultContainer.firstChild) {
         resultContainer.removeChild(resultContainer.firstChild);
     }
@@ -57,14 +63,14 @@ function printGlobalResult() {
 }
 
 function printRoundResult(msg) {
-    if (roundContainer.lastChild) {
-        roundContainer.removeChild(roundContainer.lastChild);
+    if (textResultContainer.lastChild) {
+        textResultContainer.removeChild(textResultContainer.lastChild);
     }
 
-    const roundResult = document.createElement("p");
-    roundResult.textContent = msg;
+    const resultParagraph = document.createElement("p");
+    resultParagraph.textContent = msg;
 
-    roundContainer.appendChild(roundResult);
+    textResultContainer.appendChild(resultParagraph);
 }
 
 function printWinner(winner) {
@@ -91,6 +97,9 @@ function resetGame() {
     roundCounter = 0;
     computerScore = 0;
     humanScore = 0;
+
+    humanImage.src = './images/question.png';
+    computerImage.src = './images/question.png';
 
     printRoundResult();
     printGlobalResult();
@@ -145,7 +154,16 @@ function playRound() {
 function getComputerSelection() {
     const randomChoice = parseInt(Math.random() * 3);
 
-    if (randomChoice === 0) return "rock";
-    if (randomChoice === 1) return "paper";
-    if (randomChoice === 2) return "scissors";
+    if (randomChoice === 0) {
+        computerImage.src = "./images/rock.png";
+        return "rock";
+    }
+    if (randomChoice === 1) {
+        computerImage.src = "./images/paper.png";
+        return "paper";
+    }
+    if (randomChoice === 2) {
+        computerImage.src = "./images/scissors.png";
+        return "scissors";
+    }
 }
