@@ -29,6 +29,7 @@ The game has three possible outcomes other than a tie:
 - `index.html`: The main HTML file that contains the structure of the game.
 - `script.js`: The JavaScript file that contains the game logic.
 - `styles.css`: The CSS file that contains the styles for the game.
+- `./image`: The image folder that contains the images of the game.
 
 ## How to Run
 
