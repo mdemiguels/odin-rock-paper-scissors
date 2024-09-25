@@ -74,19 +74,24 @@ function printRoundResult(msg) {
 }
 
 function printWinner(winner) {
+    const confetiImg = document.createElement('img');
     const winnerParagraph = document.createElement("p");
     const resetButton = document.createElement("button");
 
     if (winner === "computer") {
+        confetiImg.src = './images/robot.webp';
         winnerParagraph.textContent =
-            "Computer is the winner 🤖!! Luck for the next time! 🍀";
+            "Computer is the winner!! Luck for the next time!";
     } else {
+        confetiImg.src = './images/confeti.webp';
         winnerParagraph.textContent =
-            "You are the winner 🧍🏻‍♂️!! Congratulations 🎊";
+            "You are the winner!! Congratulations";
     }
+    confetiImg.width = 80;
     resetButton.textContent = "Reset Game";
     resetButton.onclick = resetGame;
 
+    winnerContainer.appendChild(confetiImg);
     winnerContainer.appendChild(winnerParagraph);
     winnerContainer.appendChild(resetButton);
 

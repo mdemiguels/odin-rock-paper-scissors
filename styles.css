@@ -137,7 +137,7 @@ button:disabled {
     text-align: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     .round-result-container {
         width: 100vw;
         margin: 0;   
