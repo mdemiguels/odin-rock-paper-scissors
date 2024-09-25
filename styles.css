@@ -108,13 +108,9 @@ button:disabled {
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
     gap: 15px;
-}
-
-.player-result {
-    min-width: 200px;
 }
 
 .options-container {
@@ -141,5 +137,6 @@ button:disabled {
     .round-result-container {
         width: 100vw;
         margin: 0;   
+        justify-content: space-between;
     }
 }
